@@ -44,7 +44,7 @@ public class SkeletonPanel extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		// Draws the window
-		super.paintComponent(g);
+		super.paintComponent(g); 
 		float originX = getWidth() / 2;
 		float originY = getHeight() / 2;
 
@@ -55,13 +55,25 @@ public class SkeletonPanel extends JPanel {
 		drawSkeleton(g, originX, originY, nodeRoot);
 	}
 
+	/*
+	 * fillOval rellena un óvalo (representan los nodos) con los param dados
+	 * drawLine dibuja una línea entre los dos puntos coordenados dados 
+	 * el method comienza dibujando el nodo padre
+	 * si no hay nodos hijos el method se acaba
+	 * si los hay, el method se vuelve a ejecutar pasándole como params los datos del nodo hijo
+	 */
+	
 	private void drawSkeleton(Graphics g, double parentX, double parentY, Node node) {
 		// TODO: Ponga comentarios en este método
 		g.fillOval((int) node.getX() - 4, (int) node.getY() - 4, 8, 8);
 		g.drawLine((int) parentX, (int) parentY, (int) node.getX(), (int) node.getY());
+		
+		//caso base
 		if (node.getChildren().size() == 0) {
 			return;
 		}
+		
+		//paso recursivo 
 		for (Node child : node.getChildren()) {
 			drawSkeleton(g, node.getX(), node.getY(), child);
 		}
