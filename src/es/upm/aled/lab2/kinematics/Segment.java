@@ -56,6 +56,10 @@ public class Segment {
 		return this.children;
 	}
 	
+	public void setAngle(double angle) {
+		this.angle = angle;
+	}
+	
 	/*
 	 * añade un hijo segmento si no está ya incluído
 	 * 
