@@ -59,7 +59,7 @@ public class Segment {
 	/*
 	 * añade un hijo segmento si no está ya incluído
 	 * 
-	 * @param child hijo a añadirs
+	 * @param child hijo a añadir
 	 */
 	
 	public void addChild(Segment child) {
