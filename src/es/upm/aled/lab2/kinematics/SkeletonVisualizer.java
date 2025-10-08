@@ -65,11 +65,11 @@ public class SkeletonVisualizer {
 		if (args.length > 0) {
 			try {
 				// Load frame
-				List<double[]> frames = FileUtils.loadMotion(args[0]);
+				List<double[]> frames = FileUtils.loadMotion("saludar.csv"); //cambiado por args[0] no m lee el archivo bien porq no se mueve el muñeco :(
 				// Run animation
 				final int[] frameIndex = { 0 };
 				// 5 frames per second
-				new Timer(200, e -> {
+				new Timer(200, e -> { // e = evento a ser procesado -> es la variable q controlará al temporizador
 					double[] angles = frames.get(frameIndex[0]);
 
 					// Apply angles to joints
