@@ -48,7 +48,9 @@ public class ForwardKinematics {
 		//PASO RECURSIVO
 		for (Segment child : link.getChildren()) {
 			Node childNode = computePositions(child, x, y, currentAngle);
-			node.addChild(childNode);
+			if(!node.getChildren().contains(childNode)) {
+				node.addChild(childNode);
+			}
 		}
 		long runningTime = System.nanoTime() - startTime;
 		System.out.println("Tiempo de computePositions para un segmento con " + link.getChildren().size() + " hijos: " + runningTime + " nanosegundos");
